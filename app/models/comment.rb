@@ -20,6 +20,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Comment < ApplicationRecord
-  belongs_to :project
   validates :text, presence: true
+  belongs_to :project
+  belongs_to :user
 end
