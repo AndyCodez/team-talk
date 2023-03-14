@@ -65,6 +65,8 @@ group :development do
 
   # Annotate Rails classes with schema and routes info
   gem 'annotate'
+  # Use RSpec for testing
+  gem 'rspec-rails', '~> 6.0.0'
 end
 
 group :test do
