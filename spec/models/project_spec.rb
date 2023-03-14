@@ -21,4 +21,11 @@ RSpec.describe Project, type: :model do
       expect(project).to_not be_valid
     end
   end
+
+  describe "associations" do 
+    it "has many comments" do 
+      project = Project.reflect_on_association(:comments)
+      expect(project.macro).to eq(:has_many)
+    end
+  end
 end
