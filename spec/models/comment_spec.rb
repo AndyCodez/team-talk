@@ -26,7 +26,7 @@ RSpec.describe Comment, type: :model do
       expect(comment).to be_valid
     end
 
-    it 'is invalid without a name' do
+    it 'is invalid without a text' do
       project = Project.create(name: 'Test Project')
       comment = Comment.new(project_id: project.id)
       expect(comment).to_not be_valid
