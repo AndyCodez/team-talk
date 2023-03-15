@@ -1,3 +1,15 @@
 <h1>Projects#index</h1>
+
+<% @projects.each do |project| %>
+    <div class="border border-gray-300 rounded-lg shadow-lg hover:shadow-xl cursor-pointer">
+        <%= link_to project_path(project) do %>
+            <div class="p-4">
+                <h2 class="text-lg font-bold mb-2"><%= project.name %></h2>
+            </div>
+        <% end %>
+    </div>
+<% end %>
+
 <p>Find me in app/views/projects/index.html.erb</p>
+<%= link_to "New Project", new_project_path %>
 <%= link_to "Sign In", new_user_session_path %>
