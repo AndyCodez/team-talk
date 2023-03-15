@@ -23,4 +23,8 @@ class Comment < ApplicationRecord
   validates :text, presence: true
   belongs_to :project
   belongs_to :user
+
+  def author
+    self.user.name || "User #{self.id}"
+  end
 end

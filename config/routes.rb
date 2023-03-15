@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "projects#index"
   resources :projects, except: :index
+  resources :comments, only: [:create]
   devise_for :users
 end
