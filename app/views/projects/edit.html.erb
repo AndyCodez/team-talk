@@ -1,2 +1,7 @@
-<h1>Projects#edit</h1>
-<p>Find me in app/views/projects/edit.html.erb</p>
+<%= form_with(model: @project, local: true) do |form| %>
+    <div>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+    <%= form.submit "Update Project" %>
+<% end %>
