@@ -10,7 +10,7 @@
 #
 class Project < ApplicationRecord
     validates :name, presence: true
-    has_many :comments
+    has_many :comments, dependent: :destroy
 
     enum status: [:todo, :ongoing, :done]
 end
