@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["MY_APP_DATABASE_URL"] %>
   database: team_talk_production
   username: team_talk
   password: <%= ENV["TEAM_TALK_DATABASE_PASSWORD"] %>
