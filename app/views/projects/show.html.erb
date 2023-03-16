@@ -1,15 +1,17 @@
-<div class="max-w-xl mx-auto bg-white rounded-lg shadow-lg p-6">
-  <h1 class="text-3xl font-bold mb-4"><%= @project.name %></h1>
-  <p class="text-gray-700"><%= @project.status.titleize %></p>
+<div class="max-w-5xl mx-auto bg-white rounded-lg shadow-lg p-6">
+  <div class="text-center">
+    <h1 class="text-3xl font-bold mb-4"><%= @project.name %></h1>
+    <p class="text-gray-700"><%= @project.status.titleize %></p>  
 
-  <%= form_with(model: @project, url: change_status_path(@project), class: "mt-4") do |form| %>
-    <div class="flex items-center">
-    <%= form.select :status, options_for_select(Project.statuses.reject{ |s| s == @project.status}.keys.map { |s| [s.titleize, s] } ), {}, { class: "mr-4"} %>
-
-    <input type="hidden" name="project_id" value="<%= @project.id %>">
-    <%= form.submit "Update", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-    </div>
-  <% end %>
+    <%= form_with(model: @project, url: change_status_path(@project), class: "mt-4") do |form| %>
+      <div class="flex items-center">
+      <%= form.select :status, options_for_select(Project.statuses.reject{ |s| s == @project.status}.keys.map { |s| [s.titleize, s] } ), {}, { class: "mr-4"} %>
+  
+      <input type="hidden" name="project_id" value="<%= @project.id %>">
+      <%= form.submit "Update status", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+      </div>
+    <% end %>
+  </div>
 
   <div class="flex justify-between mt-4">
     <%= link_to "Edit Project", edit_project_path(@project), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
@@ -17,7 +19,7 @@
   </div>
 
   <% @comments.each do |comment| %>
-    <div class="max-w-xl mx-auto mt-8 bg-gray-100 rounded-lg shadow-lg p-6 relative">
+    <div class="max-w-5xl mx-auto mt-8 bg-gray-100 rounded-lg shadow-lg p-6 relative">
       <h1 class="text-gray-700"><%= comment.text %></h1>
       <hr class="my-2 border-gray-300">
       <div class="flex justify-end">
@@ -29,8 +31,7 @@
 
   <%= form_with(model: @comment, local: true, class: "mt-8") do |form| %>
     <div class="flex items-center">
-    <%= form.label :text, class: "mr-4" %>
-    <%= form.text_field :text, class: "rounded-lg shadow appearance-none border-2 border-gray-200 py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" %>
+    <%= form.text_area :text, class: "rounded-lg shadow appearance-none border-2 border-gray-200 py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 w-full" %>
     <input type="hidden" name="project_id" value="<%= @comment.project_id %>">
     <input type="hidden" name="user_id" value="<%= @comment.user_id %>">
     <%= form.submit "Add comment", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-4" %>
