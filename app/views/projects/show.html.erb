@@ -1,10 +1,10 @@
 <div class="max-w-xl mx-auto bg-white rounded-lg shadow-lg p-6">
   <h1 class="text-3xl font-bold mb-4"><%= @project.name %></h1>
-  <p class="text-gray-700"><%= @project.status %></p>
+  <p class="text-gray-700"><%= @project.status.titleize %></p>
 
   <%= form_with(model: @project, url: change_status_path(@project), class: "mt-4") do |form| %>
     <div class="flex items-center">
-    <%= form.select :status, options_for_select(Project.statuses.keys.map { |s| [s.titleize, s]} ), { include_blank: 'Select status' }, { class: "mr-4"} %>
+    <%= form.select :status, options_for_select(Project.statuses.reject{ |s| s == @project.status}.keys.map { |s| [s.titleize, s] } ), {}, { class: "mr-4"} %>
 
     <input type="hidden" name="project_id" value="<%= @project.id %>">
     <%= form.submit "Update", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
