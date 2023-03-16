@@ -6,7 +6,6 @@
 
     <div>
         <%= form.label :status %>
-        <%= form.select :status, options_for_select(Project.statuses.keys.map{ |s| [s.titleize, s] }), {}, class: "form-control" %>
     </div>
     <%= form.submit "Update Project" %>
 <% end %>
