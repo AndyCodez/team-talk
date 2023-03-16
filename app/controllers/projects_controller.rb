@@ -27,6 +27,7 @@ class ProjectsController < ApplicationController
 
     if @project.update(change_status_params)
       flash[:success] = "Project status updated successfully."
+      Comment.create(text: "Status changed to '#{@project.status.titleize}' by #{current_user.name}", user_id: current_user.id, project_id: @project.id)
       redirect_to @project
     else
       flash[:warning] = "Something went wrong. Please try again."
