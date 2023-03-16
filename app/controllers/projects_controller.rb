@@ -22,6 +22,18 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
+  def change_status
+    @project = Project.find(params[:project_id])
+
+    if @project.update(change_status_params)
+      flash[:success] = "Project status updated successfully."
+      redirect_to @project
+    else
+      flash[:warning] = "Something went wrong. Please try again."
+      redirect_to @project
+    end 
+  end
+
   def update
     @project = Project.find(params[:id])
 
@@ -50,5 +62,9 @@ class ProjectsController < ApplicationController
   private
   def project_params
     params.require(:project).permit(:name)
+  end
+
+  def change_status_params
+    params.require(:project).permit(:status, :project_id)
   end
 end
