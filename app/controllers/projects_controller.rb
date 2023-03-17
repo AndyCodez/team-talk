@@ -7,11 +7,11 @@ class ProjectsController < ApplicationController
     project = Project.new(project_params)
 
     if project.save
-      flash[:success] = "New project created successfully."
+      flash[:success] = 'New project created successfully.'
       redirect_to root_path
     else
       render :new
-    end 
+    end
   end
 
   def index
@@ -26,13 +26,14 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:project_id])
 
     if @project.update(change_status_params)
-      flash[:success] = "Project status updated successfully."
-      Comment.create(text: "Status changed to '#{@project.status.titleize}' by #{current_user.name}", user_id: current_user.id, project_id: @project.id)
+      flash[:success] = 'Project status updated successfully.'
+      Comment.create(text: "Status changed to '#{@project.status.titleize}' by #{current_user.name}",
+                     user_id: current_user.id, project_id: @project.id)
       redirect_to @project
     else
-      flash[:warning] = "Something went wrong. Please try again."
+      flash[:warning] = 'Something went wrong. Please try again.'
       redirect_to @project
-    end 
+    end
   end
 
   def update
@@ -43,7 +44,7 @@ class ProjectsController < ApplicationController
       redirect_to @project
     else
       render :edit
-    end 
+    end
   end
 
   def show
@@ -53,14 +54,15 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    project= Project.find(params[:id])
-    if project.destroy
-      flash[:success] = "Project #{project.name} deleted successfully."
-      redirect_to root_path      
-    end
+    project = Project.find(params[:id])
+    return unless project.destroy
+
+    flash[:success] = "Project #{project.name} deleted successfully."
+    redirect_to root_path
   end
 
   private
+
   def project_params
     params.require(:project).permit(:name)
   end

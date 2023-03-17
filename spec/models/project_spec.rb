@@ -23,8 +23,8 @@ RSpec.describe Project, type: :model do
     end
   end
 
-  describe "associations" do 
-    it "has many comments" do 
+  describe 'associations' do
+    it 'has many comments' do
       project = Project.reflect_on_association(:comments)
       expect(project.macro).to eq(:has_many)
     end

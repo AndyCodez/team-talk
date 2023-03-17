@@ -1,32 +1,31 @@
 require 'rails_helper'
 
-RSpec.describe "Projects", type: :request do
-  describe "GET /new" do
-    it "returns http success" do
-      get "/projects/new"
+RSpec.describe 'Projects', type: :request do
+  describe 'GET /new' do
+    it 'returns http success' do
+      get '/projects/new'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /index" do
-    it "returns http success" do
-      get "/projects/index"
+  describe 'GET /index' do
+    it 'returns http success' do
+      get '/projects/index'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /edit" do
-    it "returns http success" do
-      get "/projects/edit"
+  describe 'GET /edit' do
+    it 'returns http success' do
+      get '/projects/edit'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /show" do
-    it "returns http success" do
-      get "/projects/show"
+  describe 'GET /show' do
+    it 'returns http success' do
+      get '/projects/show'
       expect(response).to have_http_status(:success)
     end
   end
-
 end
