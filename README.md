@@ -18,11 +18,15 @@ $ rails server
 ```
 Once the server is running, you can access the application at http://localhost:3000.
 
-## Features
-- Sign up and sign in
-- Leave comments on a project
-- Change the status of a project
-- Change project name
+## Usage
+To use the application, follow these steps:
+
+1. Sign up for an account by clicking the "Sign up" button and filling out the form.
+2. Log in to your account by clicking the "Log in" button and entering your credentials.
+3. Create a new project by clicking the "New Project" button on the homepage and filling out the form.
+4. View the details of a project by clicking its title on the homepage.
+5. Leave a comment on a project by clicking the "Add Comment" button on the project details page and filling out the form.
+6. Change the status of a project by clicking the "Update Status" button on the project details page and selecting a new status from the dropdown menu.
 
 Note: password reset functionality has not been implemented in this MVP due to the absence of an emailing feature.
 
