@@ -26,11 +26,8 @@ Once the server is running, you can access the application at http://localhost:3
 
 Note: password reset functionality has not been implemented in this MVP due to the absence of an emailing feature.
 
-## Projects
-Each project in TeamTalk has a name and a status ("Todo", "Ongoing", and "Done"). Users can leave comments on a project, and change its status as the project progresses.
-
 ## Future Todos
-See the issue section.
+See the [issues](https://github.com/AndyCodez/team-talk/issues) section.
 
 ## Contributing
 If you would like to contribute to TeamTalk, please submit a pull request with your changes.
