@@ -9,8 +9,8 @@
 #  updated_at :datetime         not null
 #
 class Project < ApplicationRecord
-    validates :name, presence: true
-    has_many :comments, dependent: :destroy
+  validates :name, presence: true
+  has_many :comments, dependent: :destroy
 
-    enum status: [:todo, :ongoing, :done]
+  enum status: %i[todo ongoing done]
 end
