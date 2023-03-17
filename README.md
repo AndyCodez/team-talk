@@ -1,24 +1,39 @@
-# README
+# TeamTalk
+TeamTalk is a web application built with Ruby on Rails that enables teams to communicate and collaborate on projects. With TeamTalk, users can leave comments on a project and change its status, making it easy for teams to stay connected and work together. The application is built using Ruby on Rails and Tailwind CSS.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
+To use TeamTalk, you will need to have Ruby, Ruby on Rails, and PostgreSQL installed on your machine. Once you have those installed, you can clone this repository to your local machine and run the following commands to set up the application:
+```
+# Install dependencies
+$ bundle install
 
-Things you may want to cover:
+# Create the database
+$ rails db:create
 
-* Ruby version
+# Run database migrations
+$ rails db:migrate
 
-* System dependencies
+# Start the server
+$ rails server
+```
+Once the server is running, you can access the application at http://localhost:3000.
 
-* Configuration
+## Features
+- Sign up and sign in
+- Leave comments on a project
+- Change the status of a project
+- Change project name
 
-* Database creation
+Note: password reset functionality has not been implemented in this MVP due to the absence of an emailing feature.
 
-* Database initialization
+## Projects
+Each project in TeamTalk has a name and a status ("Todo", "Ongoing", and "Done"). Users can leave comments on a project, and change its status as the project progresses.
 
-* How to run the test suite
+## Future Todos
+See the issue section.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Contributing
+If you would like to contribute to TeamTalk, please submit a pull request with your changes.
 
-* Deployment instructions
-
-* ...
+## License
+TeamTalk is licensed under the MIT License.
