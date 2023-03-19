@@ -8,4 +8,15 @@
           </div>
         </div>
       <% end %>
+
+    <%= form_with(model: comment, local: true, class: "mt-8") do |form| %>
+      <%= render 'shared/error_messages', object: form.object %>
+
+      <div class="flex items-center w-100">
+        <%= form.text_area :text, class: "rounded-lg shadow appearance-none border-2 border-gray-200 py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 w-full" %>
+        <input type="hidden" name="project_id" value="<%= comment.project_id %>">
+        <input type="hidden" name="user_id" value="<%= comment.user_id %>">
+        <%= form.submit "Add comment", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-4" %>
+      </div>
+    <% end %>   
 <% end %>

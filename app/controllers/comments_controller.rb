@@ -7,11 +7,20 @@ class CommentsController < ApplicationController
               turbo_stream.replace(
                 "comments", 
                 partial: "projects/comments", 
-                object: @comment.project.comments
+                locals: {
+                  comments: @comment.project.comments,
+                  comment: Comment.new(project_id: @comment.project.id, user_id: current_user.id)
+                  }                
                 )
     else
-      flash[:warning] = 'Failed to add comment. Please try again.'
-      redirect_to projects_path(comment.project)
+      render turbo_stream: 
+      turbo_stream.replace(
+        "comments", 
+        partial: "projects/comments", 
+        locals: {
+          comments: @comment.project.comments,
+          comment: @comment
+}                )
     end
   end
 
