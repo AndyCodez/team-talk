@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
   def create
-    comment = Comment.new(comment_params)
+    @comment = Comment.new(comment_params)
 
-    if comment.save
+    if @comment.save
       flash[:success] = 'New comment created successfully.'
-      redirect_to projects_path(comment.project)
+      update_comments 
     else
       flash[:warning] = 'Failed to add comment. Please try again.'
       redirect_to projects_path(comment.project)
@@ -15,5 +15,9 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:text).merge(params.permit(:project_id, :user_id))
+  end
+
+  def update_comments
+    render turbo_stream: turbo_stream.replace("comments", partial: "projects/comments", object: @comment.project.comments)
   end
 end
